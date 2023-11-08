@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice with jQuery Events</title>
+	<script src="../vectacorp/js/jQuery.js"></script>
+  <script>
+    $(function () {
+      $('.step1').click(function() {
+        window.alert("step1 button clicked");
+      });
+
+      $('.step2').bind('click', function() {
+        window.alert("step2 button clicked");
+      });
+
+      $('.step3').on('click', function() {
+        window.alert("step3 button clicked");
+      });
+
+      $('.step4').on('click', function() {
+        window.alert("step4 button clicked");
+      });
+
+      $('.step5').css({
+        'height': '400px',
+        'width': '400px',
+        'background-color': '#ddd'
+      }).on('click mouseenter mouseleave', function() {
+        window.alert("step5 div clicked, entered, or left");
+      });
+
+      $('.step6').css({
+        'height': '400px',
+        'width': '400px',
+        'background-color': '#ddd'
+      }).on({
+        'click': function() {
+          $('.step6 span').html('step 6 div clicked');
+        },
+        'mouseenter': function() {
+          $('.step6 span').html('step 6 div entered');
+        },
+        'mouseleave': function() {
+          $('.step6 span').html('step 6 div left');
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <button class="step1">1.</button><br>
+  <button class="step2">2.</button><br>
+  <button class="step3">3.</button><br>
+  <button class="step4">4.a.</button>
+  <button class="step4">4.b</button>
+  <div class="step5">5.</div>
+  <div class="step6">6.<span></span></div>
+  <a class="step7" href="modulemedia.com">7.</a>
+  <div class="step8"></div>
+  <input class="step9">
+  <form class="step10">
+    
+  </form>
+  
+</body>
+</html>
