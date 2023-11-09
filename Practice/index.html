@@ -37,32 +37,71 @@
         'background-color': '#ddd'
       }).on({
         'click': function() {
-          $('.step6 span').html('step 6 div clicked');
+          $('.step6 span').html('step6 div clicked');
         },
         'mouseenter': function() {
-          $('.step6 span').html('step 6 div entered');
+          $('.step6 span').html('step6 div entered');
         },
         'mouseleave': function() {
-          $('.step6 span').html('step 6 div left');
+          $('.step6 span').html('step6 div left');
+        }
+      });
+
+      $('.step7').click(function(event) {
+        event.preventDefault();
+        $(this).css('color', 'red');
+        window.alert(event.target.nodeName);
+      });
+
+      $(window).resize(function() {
+        $('.step8').text('8. width: ' + $(window).width() + ', height: ' + $(window).height());
+      });
+
+      $('.step9').focus(function() {
+        $(this).css('background-color', 'lightgrey');
+      }).blur(function() {
+        $(this).css('background-color', 'white');
+      });
+
+      $('.step10').on('submit', function(event) {
+        event.preventDefault();
+
+        var name = $('#name').val();
+        var email = $('#email').val();
+        if(name && email) {
+          $('#name, #email').css('border', '1px solid green');
+        }
+        else {
+          window.alert('step10 needs both name and email');
+          if(!name) {
+            $('#name').css('border', '1px solid red');
+          }
+          if(!email) {
+            $('#email').css('border', '1px solid red');
+          }
         }
       });
     });
 
   </script>
 </head>
-<body>
-  <button class="step1">1.</button><br>
-  <button class="step2">2.</button><br>
-  <button class="step3">3.</button><br>
-  <button class="step4">4.a.</button>
-  <button class="step4">4.b</button>
-  <div class="step5">5.</div>
-  <div class="step6">6.<span></span></div>
+  <button class="step1">1. </button><br>
+  <button class="step2">2. </button><br>
+  <button class="step3">3. </button><br>
+  <button class="step4">4. a.</button>
+  <button class="step4">4. b</button>
+  <div class="step5">5. </div>
+  <div class="step6">6. <span></span></div>
   <a class="step7" href="modulemedia.com">7.</a>
-  <div class="step8"></div>
-  <input class="step9">
+  <div class="step8">8. </div>
+  <input class="step9" value="9. ">
   <form class="step10">
-    
+    10. <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
+    <input type="submit" value="Submit">
   </form>
   
 </body>
